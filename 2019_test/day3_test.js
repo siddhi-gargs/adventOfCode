@@ -1,6 +1,7 @@
 import { describe, test } from "jsr:@std/testing/bdd";
 import { assertEquals } from "jsr:@std/assert";
 import { intersectionPoint, merge } from "../2019/day3/03_part1.js";
+import { lowestIntersection } from "../2019/day3/03_part2.js";
 
 describe("It should give merged Object", () => {
   test("should give a and b as keys", () => {
@@ -41,5 +42,29 @@ describe("intersectionPoint: ", () => {
     const wire2 = ["U62", "R66", "U55", "R34", "D71", "R55", "D58", "R83"];
 
     assertEquals(intersectionPoint(wire1, wire2), 159);
+  });
+});
+
+describe("It should give the lowest Intersection", () => {
+  test("it should give 30 ", () => {
+    const wire1 = ["U7", "R6", "D4", "L4"];
+    const wire2 = ["R8", "U5", "L5", "D3"];
+    assertEquals(lowestIntersection(wire1, wire2), 30);
+  });
+
+  test("it should give 610 ", () => {
+    const wire1 = [
+      "R75",
+      "D30",
+      "R83",
+      "U83",
+      "L12",
+      "D49",
+      "R71",
+      "U7",
+      "L72",
+    ];
+    const wire2 = ["U62", "R66", "U55", "R34", "D71", "R55", "D58", "R83"];
+    assertEquals(lowestIntersection(wire1, wire2), 610);
   });
 });

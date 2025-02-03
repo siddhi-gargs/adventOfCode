@@ -1,4 +1,7 @@
-import { wire1, wire2 } from "./input_part1.js";
+// import { wire1, wire2 } from "./input_part1.js";
+
+// const wire1 = ["U7", "D4", "R6", "L4"];
+// const wire2 = ["R8", "U5", "L5", "D3"];
 
 export const merge = (object1, object2) => {
   const mergedObject = { ...object1 };
@@ -10,7 +13,7 @@ export const merge = (object1, object2) => {
   return mergedObject;
 };
 
-const update = function (coordinate) {
+export const update = function (coordinate) {
   return {
     increXAxis: () => merge(coordinate, { x: 1 }),
     increYAxis: () => merge(coordinate, { y: 1 }),
@@ -19,14 +22,14 @@ const update = function (coordinate) {
   };
 };
 
-const coordinatesUpdate = {
+export const coordinatesUpdate = {
   U: "increYAxis",
   D: "decreYAxis",
   R: "increXAxis",
   L: "decreXAxis",
 };
 
-const wirePath = (directions) => {
+export const wirePath = (directions) => {
   const everyInstance = new Set();
   let coordinates = { x: 0, y: 0 };
   for (const i of directions) {
@@ -57,5 +60,3 @@ export const intersectionPoint = (wire1, wire2) => {
     })
   );
 };
-
-// console.log(intersectionPoint(wire1, wire2));
